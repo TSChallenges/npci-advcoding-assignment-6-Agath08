@@ -1,11 +1,15 @@
 package com.mystore.app;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 class Barcode {
 
     public Barcode() {
         System.out.println("In Barcode constructor");
     }
-    
+  
     public String createBarcode(Product p) {
         String bcode = "|";
         int hashcode = p.getId() + p.getName().hashCode();

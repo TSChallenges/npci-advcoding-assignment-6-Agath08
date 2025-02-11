@@ -1,13 +1,18 @@
 package com.mystore.app;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 class Product {
     
     private int id;
     private String name;
+  
     private String barcode;
 
-    Barcode barCoder = new Barcode();
-
+    //Barcode barCoder = new Barcode(); 
+    @Autowired
+    private Barcode barCoder;
+ 
     public Product() {
         System.out.println("In Product constructor");
     }
@@ -33,9 +38,9 @@ class Product {
     public void setName(String name) {
         this.name = name;
     }
-
+   
     public void setBarcode() {
-        this.barcode = barCoder.createBarcode(this);
+    	     this.barcode = barCoder.createBarcode(this);
     }
 
     @Override
